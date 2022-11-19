@@ -28,6 +28,7 @@ export class OtiohomeService {
                 const res = await this.getPlaceDevices();
                 return res.data.Devices;
             }
+            console.error(err);
             throw err;
         }
     }
@@ -60,10 +61,11 @@ export class OtiohomeService {
             'profile'
           ].join(' '));
         params.append('grant_type', 'refresh_token');
+        console.log(`https://${this.configService.get('OTIO_OPENID_HOST')}/otiohome.onmicrosoft.com/b2c_1_otiohome/oauth2/v2.0/token`);
         params.append('refresh_token', this.refreshToken);
         const res = await lastValueFrom(
             this.httpService.post(
-                `https://${this.configService.get('OTIO_OPENID_HOST')}/oauth2/v2.0/token`,
+                `https://${this.configService.get('OTIO_OPENID_HOST')}/otiohome.onmicrosoft.com/b2c_1_otiohome/oauth2/v2.0/token`,
                 params
             )
         )
