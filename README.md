@@ -3,7 +3,7 @@
 this exporter exposes prometheus metrics from the information collected in the otiohome endpoints
 
 
-[![Docker Image CI](https://github.com/sguesdon/prometheus-otiohome-exporter/actions/workflows/tag_build_docker_image.yml/badge.svg)](https://github.com/sguesdon/prometheus-otiohome-exporter/actions/workflows/tag_build_docker_image.yml)
+[![Docker Image CI](https://github.com/sguesdon/prometheus-otiohome-exporter/actions/workflows/tag_build_docker_image.yml/badge.svg)](https://github.com/sguesdon/prometheus-otiohome-exporter/actions?query=Docker%20Image%20CI)
 
 ## env variables
 
