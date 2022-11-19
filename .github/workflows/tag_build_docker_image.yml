@@ -1,0 +1,19 @@
+name: Docker Image CI
+on:
+    push:
+        tags: '*'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set env
+              run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+            - name: Build the Docker image
+              run: docker build . --file Dockerfile --tag xflux:latest
+            - name: Tag the Docker image
+              run: docker tag xflux:latest sguesdon/xflux:${{ env.RELEASE_VERSION }}
+            - name: Login to repo
+              run: docker login -u sguesdon -p ${{ secrets.DOCKER_IO_SECRET }} docker.io
+            - name: Pushing image to repo
+              run: docker push sguesdon/xflux:${{ env.RELEASE_VERSION }}
