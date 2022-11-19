@@ -12,7 +12,7 @@ jobs:
             - name: Build the Docker image
               run: docker build . --file Dockerfile --tag prometheus-otiohome-exporter:latest
             - name: Tag the Docker image
-              run: docker tag xflux:latest sguesdon/prometheus-otiohome-exporter:${{ env.RELEASE_VERSION }}
+              run: docker tag prometheus-otiohome-exporter:latest sguesdon/prometheus-otiohome-exporter:${{ env.RELEASE_VERSION }}
             - name: Login to repo
               run: docker login -u sguesdon -p ${{ secrets.DOCKER_IO_SECRET }} docker.io
             - name: Pushing image to repo
