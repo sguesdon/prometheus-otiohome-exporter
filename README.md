@@ -6,6 +6,24 @@ this exporter exposes prometheus metrics from the information collected in the o
 [![Docker Image CI](https://github.com/sguesdon/prometheus-otiohome-exporter/actions/workflows/tag_build_docker_image.yml/badge.svg)](https://github.com/sguesdon/prometheus-otiohome-exporter/actions?query=Docker%20Image%20CI)
 [![GitHub release](https://img.shields.io/github/release/sguesdon/prometheus-otiohome-exporter.svg)](https://github.com/sguesdon/prometheus-otiohome-exporter/releases/)
 
+## build
+
+```sh
+docker build -t myimagename .
+```
+
+## run
+
+### docker
+
+```sh
+docker run sguesdon/prometheus-otiohome-exporter
+```
+
+### helm
+
+[prometheus-otiohome-exporter](https://github.com/sguesdon/helm-charts/tree/main/charts/prometheus-otiohome-exporter)
+
 ## env variables
 
 | Name               | Default Value |
