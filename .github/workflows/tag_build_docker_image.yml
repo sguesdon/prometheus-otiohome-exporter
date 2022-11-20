@@ -18,4 +18,6 @@ jobs:
             - name: Login to repo
               run: docker login -u sguesdon -p ${{ secrets.DOCKER_IO_SECRET }} docker.io
             - name: Pushing image to repo
-              run: docker push --all-tags prometheus-otiohome-exporter:latest
+              run: |
+                docker push sguesdon/prometheus-otiohome-exporter:${{ env.RELEASE_VERSION }}
+                docker push sguesdon/prometheus-otiohome-exporter:latest
